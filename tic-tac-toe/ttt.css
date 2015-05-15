@@ -1,0 +1,40 @@
+/**
+ * Tic-Tac-Toe Board Styles
+ */
+
+#board {
+  font-family: 'Lato', sans-serif;
+}
+
+#board table {
+  border:1px solid #c3c3c3;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.boardcaption {
+  font-size: 4vw;
+  text-align: center;
+}
+
+.boardcell {
+  border: 1px solid #c3c3c3;
+  height: 200px;
+  width: 200px;
+}
+
+.marker {
+  font-family: 'Lato', sans-serif;
+  font-size: 12vw;
+  text-align: center;
+}
+
+.ex {
+  color: #F7977A;
+  display: inline;
+}
+
+.oh {
+  color: #82CA9D;
+  display: inline;
+}
