@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pop-quiz - who knows where the title shows up?</title>
+        <script>
+
+            function greet(name){
+                document.getElementById("content").textContent = "Nice to meet you, " + name;
+            }
+
+            window.onload = function() {
+                button = document.getElementById("submit");
+                button.onclick = function(){
+                    name = document.getElementById("name").value;
+                    greet(name);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Hello student. What's your name?</h1>
+        <input id="name" type="text" />
+        <button id="submit">Click me, unknown friend</Button>
+        <p id="content"></p>
+    </body>
+</html>
+
+<!--
+    Maybe show alternate syntax with onclick="func()" in button tag
+-->

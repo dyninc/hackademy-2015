@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pop-quiz - who knows where the title shows up?</title>
+        <script>
+                window.onload = function() {
+                content_tag = document.getElementById("content")
+                content_tag.textContent = "Hello world, from Javascript to the DOM"
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <p id="content">This is my first site, it's great</p>
+    </body>
+</html>
+
+<!--
+    Show what happens if we didn't use the onload event here, and tried to get the tag immidiatley
+    introduce the browser debugger
+-->

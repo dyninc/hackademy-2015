@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First steps with canvas</title>
+        <script>
+
+            var canvas;
+            objects = [];
+
+            function drawObjects(ctx){
+
+                var index;
+                for (index = 0; index < objects.length; ++index) {
+                    var x = objects[index].x
+                    var y = objects[index].y
+                    var width = 30;
+                    var height = 30;
+                    ctx.fillRect(x - width/2, y - height/2, width, height)
+                }
+            }
+
+            function updateObjects(){
+                for (index = 0; index < objects.length; ++index) {
+
+                    if (objects[index].y >= 300) {
+                        if (objects[index].velocity < 2) {
+                            objects[index].velocity = 0;
+                        } else {
+                            objects[index].velocity = 3 - objects[index].velocity;
+                        }
+                            objects[index].y = 300 - 1;
+                    } else {
+                        velocity = objects[index].velocity += 1;
+                        objects[index].y += velocity;
+                    }
+                }
+            }
+
+            function addObject(x, y) {
+                objects.push({"x":x,"y":y,"velocity":0});
+            }
+
+            function clickOnStage(event) {
+                var x = event.clientX + document.body.scrollLeft + stage.scrollLeft - canvas.offsetLeft;
+                var y = event.clientY + document.body.scrollTop + stage.scrollTop - canvas.offsetTop;
+                addObject(x,y);
+            }
+
+            window.onload = function() {
+                canvas = document.getElementById("stage");
+                canvas.onclick = clickOnStage;
+                var ctx = canvas.getContext('2d');
+
+                var intervalID = window.setInterval(function(){
+                    ctx.clearRect(0,0,500,300);
+                    drawObjects(ctx);
+                    updateObjects();
+                },100);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Canvas fun</h1>
+        <canvas id="stage" width="500" height="300" style="background: #EEE;">
+    </body>
+</html>
+
+<!--
+    Coordinate space starts in top left at 0,0
+    our drawing functions are available after getting a context with getContext('2d')
+    javascript object literal syntax)
+    setTimeout takes function, milliseconds (modern browser have a replacement for this that is better)
+-->
